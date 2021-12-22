@@ -1,70 +1,80 @@
 .App {
-  padding: 0 50px 0 50px;
-  background-color: #e2ee8d;
+    padding: 0 50px 0 50px;
+    background-color: #e2ee8d;
 }
 
 img {
-  height: 200px;
-  width: auto;
+    height: 200px;
+    width: auto;
 }
 
 .productsBox {
-  height: 300px;
-  width: 220px;
-  border: 1px solid black;
-  margin: 10px;
-  background-color: white;
+    height: 300px;
+    width: 220px;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: white;
 }
 
 .toolbar {
-  width: 100%;
-  height: 50px;
-  background-color: #f8b280;
-  margin-bottom: 30px;
-  border-radius: 0 0 50px 50px;
+    width: 100%;
+    height: 50px;
+    background-color: #f8b280;
+    margin-bottom: 30px;
+    border-radius: 0 0 50px 50px;
 }
 
 .home {
-  background-color: #ffdcac;
-  height: 100vh;
-  width: 100%;
-  border-radius: 50px 50px 0 0;
+    background-color: #ffdcac;
+    height: 100vh;
+    width: 100%;
+    border-radius: 50px 50px 0 0;
 }
+
 .cartBox {
-  width: auto;
-  height: 100vh;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: white;
+    width: auto;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: white;
+    margin: 10px 0 10px 0;
 }
 
-
+.span {
+    padding: 1px 4px 0 4px;
+    font-size: 13px;
+    border: 1px solid red;
+    border-radius: 50px/50px;
+    color: red;
+    margin: 0;
+}
 
 
 .d-flex {
-  display: flex;
+    display: flex;
 }
 
 .s-around {
-  justify-content: space-around;
+    justify-content: space-around;
 }
 
-.flex-1{
-  flex:1;
+.flex-1 {
+    flex: 1;
 }
 
 .f-wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .j-center {
-  justify-content: center;
+    justify-content: center;
 }
 
 .al-center {
-  align-items: center;
+    align-items: center;
 }
+
 .f-column {
-  flex-direction: column;
+    flex-direction: column;
 }
 

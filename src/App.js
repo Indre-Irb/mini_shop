@@ -41,9 +41,13 @@ function App() {
 
     const [getProductIndex, setProductIndex]= useState(0)
     const [getWindow, setWindow] = useState(1)
+    const [getQnt, setQnt] = useState(0)
+    const [getBoughtList, setBoughtList] = useState([])
 
     function Buy(num) {
         setProductIndex(num)
+        setQnt(getQnt + 1)
+        setBoughtList([...getBoughtList, products[num]])
     }
 
     function changeWindow(n){
@@ -56,11 +60,11 @@ function App() {
             <div className="toolbar d-flex s-around">
                 <h3 onClick={() => changeWindow(1)}>Home</h3>
                 <h3 onClick={() => changeWindow(2)}>Shop</h3>
-                <h3 onClick={() => changeWindow(3)}>Cart</h3>
+                <h3 onClick={() => changeWindow(3)}>Cart <span className="span"> {getQnt}</span></h3>
             </div>
             {getWindow === 1 && <Home/>}
             {getWindow === 2 && <Shop products={products} BoughtProduct={Buy}/>}
-            {getWindow === 3 && <Cart products={products} toCart={getProductIndex}/>}
+            {getWindow === 3 && <Cart products={products} toCart={getProductIndex} boughtProducts={getBoughtList}/>}
         </div>
     );
 }
