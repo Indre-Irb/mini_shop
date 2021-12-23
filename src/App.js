@@ -39,16 +39,37 @@ const products = [
 function App() {
 
 
-    const [getProductIndex, setProductIndex]= useState(0)
+    const [getProductIndex, setProductIndex]= useState([])
     const [getWindow, setWindow] = useState(1)
     const [getQnt, setQnt] = useState(0)
     const [getBoughtList, setBoughtList] = useState([])
+    const [getQuantity, setQuantity] = useState(1)
+
+    let prod = {}
 
     function Buy(num) {
-        setProductIndex(num)
+        if (!getProductIndex.includes(num)) {
+           prod = {
+               image: products[num].image,
+               title: products[num].title,
+               price: products[num].price,
+               index: num,
+               quantity: 1
+           }
+
+        setProductIndex([...getProductIndex, Number(num)])
+        setBoughtList([...getBoughtList, prod])
+        } else {
+            for (let j = 0; j < getBoughtList.length; j++) {
+                if(products[num].title === getBoughtList[j].title)
+                    getBoughtList[j].quantity++;
+            }
+        }
         setQnt(getQnt + 1)
-        setBoughtList([...getBoughtList, products[num]])
+
     }
+
+    console.log(getProductIndex)
 
     function changeWindow(n){
     setWindow(n)
@@ -64,7 +85,7 @@ function App() {
             </div>
             {getWindow === 1 && <Home/>}
             {getWindow === 2 && <Shop products={products} BoughtProduct={Buy}/>}
-            {getWindow === 3 && <Cart products={products} toCart={getProductIndex} boughtProducts={getBoughtList}/>}
+            {getWindow === 3 && <Cart products={products} toCart={getProductIndex} boughtProducts={getBoughtList} productQty={getQnt}/>}
         </div>
     );
 }
